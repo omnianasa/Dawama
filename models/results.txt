@@ -1,0 +1,9 @@
+====== THE ULTIMATE BENCHMARK: STANDARD VS SUPER OFORMER ======
+
+                     Scenario Standard MSE Standard R2 (%) Super MSE Super R2 (%)
+           1. Clean Test Data       0.9565          98.32%    0.3827       99.33%
+    2. Heavy Wind Noise (0.5)       3.3105          94.18%    2.0845       96.33%
+   3. Critical Sensor Failure      14.4118          74.64%    7.8996       86.10%
+4. Out-of-Bounds Shift (1.5x)       3.3026          94.19%    0.9546       98.32%
+
+=================================================================
