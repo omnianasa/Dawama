@@ -4,3 +4,5 @@ uvicorn
 websockets
 numpy
 torch
+matplotlib
+pandas
