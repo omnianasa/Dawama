@@ -5,6 +5,11 @@ import time
 import pandas as pd
 import matplotlib.pyplot as plt
 from datetime import datetime
+import os
+
+base_dir = os.path.dirname(__file__)
+model_path_1 = os.path.join(base_dir, "fitted_oformer_dawama_stable.pth")
+model_path_2 = os.path.join(base_dir, "oformer_dawama_model.pth")
 #load models with caching to avoid reloading on every interaction
 @st.cache_resource
 def load_models():
@@ -14,11 +19,11 @@ def load_models():
     from model.OFormerDawama import OFormerDawama
 
     super_model = FittedDawamaOFormer(num_sensors=8, d_model=64, nhead=4).to(device)
-    super_model.load_state_dict(torch.load("fitted_oformer_dawama_stable.pth", map_location=device))
+    super_model.load_state_dict(torch.load(model_path_1, map_location=device))
     super_model.eval()
 
     standard_model = OFormerDawama(num_sensors=8, d_model=64, nhead=4).to(device)
-    standard_model.load_state_dict(torch.load("oformer_dawama_model.pth", map_location=device))
+    standard_model.load_state_dict(torch.load(model_path_2, map_location=device))
     standard_model.eval()
 
     return device, super_model, standard_model
